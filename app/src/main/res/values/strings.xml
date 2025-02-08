@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">MKwallet</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="exchange_rates">Exchange Rates</string>
+    <string name="menu_exchange_rates">Exchange Rates</string>
+    <string name="_00_00">00.00</string>
+    <string name="to">TO</string>
+    <string name="currency_converter">Currency converter</string>
+    <string name="save">save</string>
+    <string name="date">Datum</string>
+    <string name="average_rate">Среден\nКурс</string>
+    <string name="bought_rate">Куповен\nКурс</string>
+    <string name="sold_rate">Продажен\nКурс</string>
+</resources>

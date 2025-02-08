@@ -1,0 +1,157 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/material_dynamic_neutral90"
+    tools:context=".ui.exchangeRates.ExchangeRatesFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/currency_converter"
+            android:textAlignment="center"
+            android:background="@android:color/darker_gray"
+            android:paddingTop="54sp"
+            android:paddingBottom="20sp"
+            android:textSize="24sp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10sp">
+
+            <EditText
+                android:id="@+id/ammount_from"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:width="14sp"
+                android:hint="@string/_00_00"
+                android:textSize="20sp"
+                android:importantForAutofill="no"
+                android:inputType="numberDecimal">
+            </EditText>
+            <Spinner
+                android:id="@+id/spinner_from"
+                android:spinnerMode="dialog"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="14sp">
+            </Spinner>
+            <TextView
+                android:id="@+id/to"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/to"
+                android:textColor="@color/black">
+            </TextView>
+            <Spinner
+                android:id="@+id/spinner_to"
+                android:spinnerMode="dialog"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:padding="14sp">
+            </Spinner>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/ammount_to"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/_00_00"
+            android:textSize="30sp"
+            android:textColor="@color/black"
+            android:layout_gravity="center"
+            android:padding="20sp">
+        </TextView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10sp">
+            <TextView
+                android:id="@+id/date"
+                android:layout_weight="2"
+                android:textSize="20sp"
+                android:padding="12sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:clickable="true"
+                tools:text="@string/date">
+            </TextView>
+            <TextView
+                android:id="@+id/bought_rate"
+                android:textSize="14sp"
+                android:layout_weight="1"
+                android:padding="10sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/bought_rate"/>
+            <TextView
+                android:id="@+id/average_rate"
+                android:layout_weight="1"
+                android:padding="10sp"
+                android:textSize="14sp"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/average_rate" />
+            <TextView
+                android:id="@+id/sold_rate"
+                android:layout_weight="1"
+                android:padding="10sp"
+                android:textSize="14sp"
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/sold_rate" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_viewer"
+                android:nestedScrollingEnabled="false"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:overScrollMode="never"
+                android:clipToPadding="false"
+                android:padding="10dp"
+                tools:listitem="@layout/exchange_rates_item"/>
+            <ProgressBar android:id="@+id/progress_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:visibility="invisible"
+                tools:visibility="visible"/>
+            <TextView android:id="@+id/text_view_error"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_margin="18dp"
+                android:gravity="center_horizontal"
+                android:visibility="invisible"
+                tools:text="Error Message"
+                tools:visibility="visible"/>
+        </RelativeLayout>
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,198 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "a13f8c1d0d93ea3c62eb632d845c1e20",
+    "entities": [
+      {
+        "tableName": "account",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`currency` TEXT NOT NULL, PRIMARY KEY(`currency`))",
+        "fields": [
+          {
+            "fieldPath": "currency",
+            "columnName": "currency",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "currency"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "transaction",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`transaction_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `date_time` INTEGER NOT NULL, `value` INTEGER NOT NULL, `image_path` TEXT NOT NULL, `description` TEXT NOT NULL, `category` INTEGER NOT NULL, `transaction_currency` TEXT NOT NULL, `foreign_party` TEXT NOT NULL, FOREIGN KEY(`transaction_currency`) REFERENCES `account`(`currency`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "transactionId",
+            "columnName": "transaction_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dateTime",
+            "columnName": "date_time",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "value",
+            "columnName": "value",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "imagePath",
+            "columnName": "image_path",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "description",
+            "columnName": "description",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "category",
+            "columnName": "category",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "transactionCurrency",
+            "columnName": "transaction_currency",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "foreignParty",
+            "columnName": "foreign_party",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "transaction_id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_transaction_transaction_currency",
+            "unique": false,
+            "columnNames": [
+              "transaction_currency"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_transaction_transaction_currency` ON `${TABLE_NAME}` (`transaction_currency`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "account",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "transaction_currency"
+            ],
+            "referencedColumns": [
+              "currency"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "exchange_rates",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`valuta` REAL NOT NULL, `datum` TEXT NOT NULL, `oznaka` TEXT NOT NULL, `drzava` TEXT NOT NULL, `kupoven` REAL NOT NULL, `sreden` REAL NOT NULL, `prodazen` REAL NOT NULL, `drzava_ang` TEXT NOT NULL, `naziv_mak` TEXT NOT NULL, `naziv_ang` TEXT NOT NULL, `datum_f` TEXT NOT NULL, PRIMARY KEY(`valuta`))",
+        "fields": [
+          {
+            "fieldPath": "valuta",
+            "columnName": "valuta",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "datum",
+            "columnName": "datum",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "oznaka",
+            "columnName": "oznaka",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "drzava",
+            "columnName": "drzava",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "kupoven",
+            "columnName": "kupoven",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sreden",
+            "columnName": "sreden",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "prodazen",
+            "columnName": "prodazen",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "drzavaAng",
+            "columnName": "drzava_ang",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nazivMak",
+            "columnName": "naziv_mak",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "nazivAng",
+            "columnName": "naziv_ang",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "datum_f",
+            "columnName": "datum_f",
+            "affinity": "TEXT",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "valuta"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'a13f8c1d0d93ea3c62eb632d845c1e20')"
+    ]
+  }
+}
