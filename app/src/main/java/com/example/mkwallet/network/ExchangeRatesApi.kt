@@ -2,16 +2,7 @@ package com.example.mkwallet.network
 
 import com.example.mkwallet.data.models.GetExchangeRates
 import retrofit2.http.GET
-
-
 import retrofit2.http.Query
-
-
-
-//private val retrofit = Retrofit.Builder()
-//    .addConverterFactory(ScalarsConverterFactory.create())
-//    .baseUrl(BASE_URL)
-//    .build()
 
 interface ExchangeRatesApi {
     companion object{

@@ -20,4 +20,5 @@
     <string name="average_rate">Среден\nКурс</string>
     <string name="bought_rate">Куповен\nКурс</string>
     <string name="sold_rate">Продажен\nКурс</string>
+    <string name="submit">submit</string>
 </resources>

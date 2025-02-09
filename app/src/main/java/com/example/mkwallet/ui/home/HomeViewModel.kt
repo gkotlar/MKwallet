@@ -26,7 +26,7 @@ class HomeViewModel @Inject constructor( repository : ExchangeRatesRepository) :
 
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
+        value = "Select the currency and enter the middle exchange rate limit where you want to be notified"
     }
     val text: LiveData<String> = _text
 }

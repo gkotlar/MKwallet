@@ -18,9 +18,12 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.work.BackoffPolicy
+import androidx.work.Constraints
 import androidx.work.Data
 
 import androidx.work.ExistingPeriodicWorkPolicy
+import androidx.work.NetworkType
 import androidx.work.PeriodicWorkRequest
 import androidx.work.WorkManager
 import com.example.mkwallet.R
@@ -95,10 +98,24 @@ class HomeFragment : Fragment() {
         submitBtn.setOnClickListener(object : View.OnClickListener {
             override fun onClick(view: View?) {
                 homeViewModel.setNumber(currencyEditText.text.toString())
-                val inputData: Data = Data.Builder().putString("run_type", "background").build()
+                val inputData: Data = Data.Builder()
+                    .putString("run_type", "background")
+                    .putDouble("rate", homeViewModel.number)
+                    .putString("oznaka", homeViewModel.oznaka.value)
+                    .build()
 
-                workRequest = PeriodicWorkRequest.Builder(NotificationWorker::class, 1, TimeUnit.DAYS)
+                var constraints : Constraints = Constraints.Builder()
+                    .setRequiredNetworkType(NetworkType.UNMETERED)
+                    .setRequiresBatteryNotLow(true)
+                    .build()
+
+                workRequest = PeriodicWorkRequest.Builder(NotificationWorker::class.java, 12, TimeUnit.HOURS)
                     .setInputData(inputData)
+                    .setConstraints(constraints)
+                    .setBackoffCriteria(
+                        BackoffPolicy.EXPONENTIAL,
+                        PeriodicWorkRequest.MIN_PERIODIC_INTERVAL_MILLIS,
+                        TimeUnit.MILLISECONDS)
                     .build()
                 mWorkManager.enqueueUniquePeriodicWork(
                     "background_work",

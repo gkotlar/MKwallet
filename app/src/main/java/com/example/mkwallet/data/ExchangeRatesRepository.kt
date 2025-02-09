@@ -2,10 +2,8 @@ package com.example.mkwallet.data
 
 import androidx.lifecycle.LiveData
 import androidx.room.withTransaction
-import com.example.mkwallet.data.models.GetExchangeRates
 import com.example.mkwallet.network.ExchangeRatesApi
 import com.example.mkwallet.network.networkBoundResource
-import kotlinx.coroutines.delay
 import javax.inject.Inject
 
 class ExchangeRatesRepository @Inject constructor(

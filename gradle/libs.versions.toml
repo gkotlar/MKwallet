@@ -18,7 +18,7 @@ retrofit2 = "2.11.0"
 hilt = "2.51"
 kotlinxSeriliazationJson = "1.5.1"
 coroutines = "1.3.9"
-workRuntimeKtx = "2.10.0"
+workRuntimeKtx = "2.9.1"
 
 
 [libraries]

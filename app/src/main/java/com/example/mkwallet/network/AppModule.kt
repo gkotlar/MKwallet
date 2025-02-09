@@ -10,7 +10,6 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 import com.example.mkwallet.data.MyRoomDB
-import dagger.hilt.android.components.ViewModelComponent
 
 @Module
 @InstallIn(SingletonComponent::class)

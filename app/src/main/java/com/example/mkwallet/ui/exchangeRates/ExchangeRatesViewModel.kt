@@ -8,7 +8,6 @@ import androidx.lifecycle.viewModelScope
 import com.example.mkwallet.data.ExchangeRatesRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.launch

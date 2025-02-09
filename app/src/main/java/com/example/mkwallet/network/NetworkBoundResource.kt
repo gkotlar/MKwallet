@@ -8,6 +8,7 @@ import kotlinx.coroutines.flow.map
 
 class NetworkBoundResource {
 }
+
 inline fun <ResultType, RequestType> networkBoundResource(
     crossinline query: () -> Flow<ResultType>,
     crossinline fetch: suspend () -> RequestType,

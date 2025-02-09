@@ -11,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.mkwallet"
-        minSdk = 31
+        minSdk = 32
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"

@@ -16,10 +16,4 @@
         android:name="com.example.mkwallet.ui.exchangeRates.ExchangeRatesFragment"
         android:label="@string/menu_exchange_rates"
         tools:layout="@layout/fragment_exchange_rates" />
-
-    <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.mkwallet.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
 </navigation>

@@ -2,7 +2,6 @@ package com.example.mkwallet.ui.exchangeRates
 
 import android.app.DatePickerDialog
 import android.os.Bundle
-import android.text.TextWatcher
 import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
@@ -13,23 +12,17 @@ import android.widget.ArrayAdapter
 import android.widget.EditText
 import android.widget.Spinner
 import android.widget.TextView
-import android.widget.Toast
 import androidx.core.view.isVisible
 
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.asLiveData
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.mkwallet.R
-import com.example.mkwallet.data.models.GetExchangeRates
 import com.example.mkwallet.databinding.FragmentExchangeRatesBinding
 import com.example.mkwallet.network.Resource
 import dagger.hilt.android.AndroidEntryPoint
-import java.util.Calendar
 import java.util.Locale
-import java.util.stream.Collectors
 
 @AndroidEntryPoint
 class ExchangeRatesFragment : Fragment() {
